@@ -27,8 +27,6 @@ function flipCard(card, cardValue) {
         flipped.push(card);
     }
 
-    console.log(flipped, matches, cards)
-
     if (flipped.length === 2) {
         if (flipped[0].textContent === flipped[1].textContent) {
             flipped.forEach(card => {
