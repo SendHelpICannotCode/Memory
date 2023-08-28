@@ -1,6 +1,5 @@
 const cards = [
-    'A', 'A', 'B', 'B', 'C', 'C', 'D', 'D',
-    'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'
 ];
 
 const memoryBoard = document.querySelector('.memory-board');
@@ -46,13 +45,16 @@ function flipCard(card, cardValue) {
                     card.textContent = '';
                     flipped = [];
                 });
-            }, 1000);
+            }, 750);
         }
         
     }
 }
 
 function init() {
+    cards.push(...cards);
+    console.log(cards.length, Math.sqrt(cards.length))
+    memoryBoard.style.gridTemplateColumns = 'repeat('+ (Math.ceil(Math.sqrt(cards.length))) + ', 100px)';
     shuffle(cards);
     cards.forEach(cardValue => {
         const card = createCard(cardValue);
